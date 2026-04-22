@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SUDIP TOPUP CENTER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #020617;
+      color: white;
+    }
+
+    header {
+      background: #0f172a;
+      padding: 15px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .container {
+      padding: 15px;
+    }
+
+    .card {
+      background: #0f172a;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      color: #22c55e;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: none;
+      background: #1e293b;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      background: #22c55e;
+      border: none;
+      border-radius: 8px;
+      color: black;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background: #16a34a;
+    }
+
+    .qr {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .qr img {
+      width: 180px;
+      border-radius: 10px;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #94a3b8;
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>🎮 SUDIP TOPUP CENTER</header>
+
+<div class="container">
+
+  <!-- ORDER SECTION -->
+  <div class="card">
+
+    <h3>💎 Top-Up Order</h3>
+
+    <input type="text" id="uid" placeholder="Enter UID">
+
+    <select id="package">
+      <option>115 💎 = 100💵</option>
+      <option>240 💎 = 195💵</option>
+      <option>355 💎 = 300💵</option>
+      <option>480 💎 = 390💵</option>
+      <option>610 💎 = 490💵</option>
+      <option>850 💎 = 690💵</option>
+      <option>1090 💎 = 900💵</option>
+      <option>1240 💎 = 990💵</option>
+      <option>Weekly (445💎) = 200💵</option>
+      <option>Monthly (2500💎) = 950💵</option>
+      <option>Level Up Pass = 585💵</option>
+    </select>
+
+    <button onclick="showQR()">Show eSewa Payment QR</button>
+
+    <button onclick="sendWhatsApp()">Send Payment Confirmation</button>
+
+  </div>
+
+  <!-- QR SECTION -->
+  <div class="card" id="qrBox" style="display:none;">
+    <h3>💳 eSewa Payment QR</h3>
+
+    <div class="qr">
+      <img src="esewa-qr.jpg" alt="eSewa QR">
+    </div>
+
+    <p class="note">Scan QR and complete payment first ✔️</p>
+  </div>
+
+</div>
+
+<script>
+
+function showQR() {
+  document.getElementById("qrBox").style.display = "block";
+}
+
+function sendWhatsApp() {
+
+  var uid = document.getElementById("uid").value;
+  var pack = document.getElementById("package").value;
+
+  var message =
+    "🔥 TOPUP ORDER CONFIRMATION%0A" +
+    "UID: " + uid + "%0A" +
+    "Package: " + pack + "%0A" +
+    "Payment: eSewa Done ✔️%0A" +
+    "Please verify my order.";
+
+  window.open("https://wa.me/9779702987090?text=" + message);
+}
+
+</script>
+
+</body>
+  </html>
